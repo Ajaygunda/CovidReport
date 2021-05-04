@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.form-control {
+  width: 200px;
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-warning {
+  margin-left: 10px;
+  padding-left: 20px;
+}
