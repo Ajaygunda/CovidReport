@@ -15,9 +15,9 @@ xhr.addEventListener("readystatechange", function () {
   let x = document.getElementById("searchResult");
   if (x.style.display === "block") {
     x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
+  } 
+   
+  
 }
         myFunction();
      
@@ -114,9 +114,8 @@ xhr.addEventListener("readystatechange", function () {
   let x = document.getElementById("searchResult");
   if (x.style.display === "block") {
     x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
+  }else
+   x.style.display="block"
 }
         
 myFunction();
