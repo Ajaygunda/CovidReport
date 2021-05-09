@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +13,8 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="main.css" />
-
+    <link rel="stylesheet" href="styles/main.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Covid report</title>
   </head>
   <body>
@@ -85,7 +86,7 @@
     </nav>
     <h3 class="firstHeading">Find Covid report</h3>
     <div class="container">
-      <div class="search">
+      <!--<div class="search">
         <div class="col-sm-7">
           <input
             type="text"
@@ -93,7 +94,24 @@
             placeholder="Country"
             aria-label="Country"
           />
-        </div>
+          </div>-->
+<div class="search">
+  <div class="countrySearch col-sm-7">
+  <input type="text" class="form-control countryValue" placeholder="Search Country" id="myInput">
+   <div class="autoBox">
+   </div>
+  </div>
+  
+  <!--<div class="search">
+  <div class="countrySearch col-sm-7">
+  <input type="text" class="form-control countryValue" placeholder="Search Country" id="myInput">
+  
+  <div class="countryListBox">
+  <ul class="countryList">
+ 
+  </ul>
+  </div>
+ </div>-->
         <div class="btn submit">
           <button type="submit" class="btn btn-success" value="submit">
             Submit
@@ -101,21 +119,23 @@
           <button type="clear" class="btn btn-warning">Clear</button>
         </div>
       </div>
+    </div>
+      <div class="casesResult" id="searchResult" >
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label"
           >Total Covid Cases</label
         >
-        <input type="text" class="form-control" id="formGroupTotalInput" />
+        <p type="text" class="totalData" id="formGroupTotalInput"></p>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput2" class="form-label">Recovered</label>
-        <input type="text" class="form-control" id="formGroupRecoveredInput2" />
+        <p type="text" class="recoveryData" id="formGroupRecoveredInput2"></p>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Deaths</label>
-        <input type="text" class="form-control" id="formGroupDeathsInput" />
+        <p class="deathData" id="formGroupDeathsInput"></p>
       </div>
-    </div>
+      </div>
     <hr class="afterContainer" />
     <h1 class="secondHeading">Latest Covid-19 News</h1>
     <div class="newsContainer" id="newsDataHtml">
@@ -222,7 +242,8 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <script src="main.js"></script>
+    <script src="scripts/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
