@@ -8,9 +8,99 @@ xhr.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
     let countryData = JSON.parse(this.responseText);
     let countryDataLength = countryData.length;
+    
+   document.getElementsByClassName("countryValue")[0].addEventListener("keyup", function(element){
+     
+     function myFunction() {
+  let x = document.getElementById("searchResult");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+        myFunction();
+     
+     let userData=element.target.value;
+     
+     let selectedValue=[];
+     
+      let namesArray=[];
+     
+
+      for(let i=0; i<countryDataLength;i++)
+      {
+        let names=countryData[i].Country;
+        namesArray.push(names);
+        
+      } 
+      
+       if(userData){
+         selectedValue=namesArray.filter((data)=>{
+           
+           return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+         })
+         
+         
+         selectedValue=selectedValue.map((data)=>{
+           return data="<li>"+ data +"</li>"
+         })
+         showSuggestions(selectedValue);
+         
+        document.getElementsByClassName("autoBox")[0].classList.add("active");
+        let searchBoxDiv=document.querySelector(".countrySearch");
+     let autoBoxDiv= searchBoxDiv.querySelector(".autoBox");
+     let allList=autoBoxDiv.querySelectorAll("li");
+     let inputValueDisplay=document.querySelector(".countryValue").value
+    // console.log(allList[0].innerHTML);
+  
+       
+       for(i=0;i<allList.length;i++){
+         //console.log(allList[i]);
+        allList[i].addEventListener("click", function (e){
+         
+         let selectUserData=e.toElement.innerText;
+        
+         //console.log(inputValueDisplay);
+         document.querySelector(".countryValue").value=selectUserData;
+         
+         document.getElementsByClassName("autoBox")[0].classList.remove("active");
+       // console.log(selectUserData);
+       })
+         
+       }
+       
+       }else{
+         document.getElementsByClassName("autoBox")[0].classList.remove("active");
+       }
+         
+        
+         
+         
+       function showSuggestions(list){
+         let listData;
+         if(list.length){
+           listData=list.join('')
+         }else{
+          userData=document.getElementById("myInput").value;
+          listData="<li>"+userData+"</li>"
+         }
+       document.getElementsByClassName("autoBox")[0].innerHTML=listData;
+        
+        }
+       });
+       
+       
+    
+     
+   
+    
+    //countNames();
     document
       .getElementsByClassName("btn-success")[0]
       .addEventListener("click", function () {
+        
+        
         let countryNameFirst = document.getElementsByClassName(
           "countryValue"
         )[0].value;
@@ -19,15 +109,27 @@ xhr.addEventListener("readystatechange", function () {
           return string.charAt(0).toUpperCase() + string.slice(1);
         }
         let countryName = capitalizeFirstLetter(countryNameFirst);
-
+           
+        function myFunction() {
+  let x = document.getElementById("searchResult");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+        
+myFunction();
         for (let i = 0; i < countryDataLength; i++) {
           if (countryName === countryData[i].Country) {
-            document.getElementById("formGroupTotalInput").value =
+            
+            document.getElementById("formGroupTotalInput").innerText =
               countryData[i].TotalCases;
-            document.getElementById("formGroupRecoveredInput2").value =
+            document.getElementById("formGroupRecoveredInput2").innerText =
               countryData[i].TotalRecovered;
-            document.getElementById("formGroupDeathsInput").value =
+            document.getElementById("formGroupDeathsInput").innerText =
               countryData[i].TotalDeaths;
+            
           }
         }
       });
@@ -67,7 +169,6 @@ request.addEventListener("readystatechange", function () {
     }
 
     let ArrayValue = findObjectByKey(newsArrayData);
-    console.log(ArrayValue);
 
     function findObjectByKeyfinal(array, index) {
       for (let i = 0; i < 10; i++) {
@@ -111,8 +212,21 @@ request.send(data);
 document
   .getElementsByClassName("btn-warning")[0]
   .addEventListener("click", function () {
-    document.getElementById("formGroupTotalInput").value = "";
-    document.getElementById("formGroupRecoveredInput2").value = "";
-    document.getElementById("formGroupDeathsInput").value = "";
+    document.getElementById("formGroupTotalInput").innerText = "";
+    document.getElementById("formGroupRecoveredInput2").innerText = "";
+    document.getElementById("formGroupDeathsInput").innerText = "";
     document.getElementsByClassName("countryValue")[0].value = "";
+    function myFunction() {
+  let x = document.getElementById("searchResult");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+        
+myFunction();
+    
   });
+
+// country names display as dropdown in search
