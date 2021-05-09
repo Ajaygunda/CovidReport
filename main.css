@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0px;
   border: 0px;
@@ -92,4 +94,46 @@ img {
   font-family: serif sans-serif;
   font-style: normal;
   padding-top: 5px;
+}
+.autoBox{
+  list-style: none;
+  display:none;
+  padding: 1px 1px;
+  margin-left: 10px;
+  font-size: 20px;
+  opacity:0;
+  pointer-events: none;
+}
+.autoBox.active{
+  opacity: 1;
+  pointer-events:auto;
+  display: block;
+}
+.autoBox li:hover{
+  background: #efefef;
+}
+
+.autoBox li{
+  margin-bottom: 2px;
+  outline-color: grey;
+}
+#searchResult{
+  display: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left:30px;
+  margin-top: 20px;
+} 
+.totalData{
+  color: lightskyblue;
+  font-size: 20px;
+}
+.recoveryData{
+  color: green;
+  font-size: 20px;
+}
+.deathData{
+  color: red;
+  font-size: 20px;
 }
